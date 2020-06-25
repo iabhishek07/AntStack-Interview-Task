@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>AntChat</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"
+        id="bootstrap-css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="chat_box">
+        <div class="top_menu">
+            <div class="buttons">
+                <div class="button close"></div>
+                <div class="button minimize"></div>
+                <div class="button maximize"></div>
+            </div>
+            <div class="title">Secure Chat</div>
+        </div>
+        <ul id="chats" class="chats"></ul>
+        <div class="bottom_wrapper clearfix">
+            <i id="typing"></i>
+            <form id="form">
+                <div class="message_box_wrapper">
+                    <input id="message" class="message_input" placeholder="Type a message..." />
+                </div>
+                <button class="send_button">Send</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/socket.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/rexeze/formatTimeStamp/src/index.min.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+
+</html>
