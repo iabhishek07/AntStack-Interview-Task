@@ -10,11 +10,11 @@ router.route("/chats/:secretKey").get(async (req, res, next) => {
     console.log(req.params.secretKey);
     const snapShot = await firebaseConnection.firestore().collection('chats').get();
     let messagesData = snapShot.docs.map(doc => doc.data());
-    console.log(JSON.stringify(messagesData));
+    // console.log(JSON.stringify(messagesData));
     messagesData.forEach((element)=>{
         const decipherMsg = encryptDecrypt.decipher(req.params.secretKey);
         element['message'] = decipherMsg(element['message']);
-        console.log(JSON.stringify(element))
+        // console.log(JSON.stringify(element));
     })
     res.json( messagesData );
 });
