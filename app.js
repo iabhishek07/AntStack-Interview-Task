@@ -5,14 +5,14 @@ const bodyParser = require("body-parser");
 const chatRouter = require("./routes/chat");
 const loginRouter = require("./routes/login");
 const http = require("http").Server(app);
-
+const encryptDecrypt = require('./encryptDecrypt');
 const io = require("socket.io");
 
 const port = 5000;
 
 app.use(bodyParser.json());
-app.use("/chats", chatRouter);
 app.use("/login", loginRouter);
+app.use('', chatRouter);
 app.use(express.static(__dirname + "/public"));
 socket = io(http);
 const firebaseConnection = require("./dbconfig");
@@ -32,12 +32,11 @@ socket.on("connection", socket => {
         socket.broadcast.emit("notifyStopTyping");
     });
 
-    socket.on("chat message", function (msg) {
-
-
-        socket.broadcast.emit("received", { message: msg });
+    socket.on("chat message", function (data) {
+        socket.broadcast.emit("received", { message: data.message, user: data.user });
+        const cipher = encryptDecrypt.cipher(data.secretKey);
         firebaseConnection.firestore().collection('chats').add(
-            { message: msg, sender: "Anonymous", createdAt: Date.now() }
+            { message: cipher(data.message) , sender: data.user, createdAt: Date.now() }
         );
     });
 });

@@ -75,14 +75,20 @@
         <div class="box">
             <h1>Dashboard</h1>
 
-            <input type="text" placeholder="Username" name="username" class="email" />
-            <input type="text" placeholder="Secret Key" name="key" class="key" />
+            <input type="text" placeholder="Username" name="username" class="email" id="username" required />
+            <input type="text" placeholder="Secret Key" name="key" class="key" id="secretKey" required />
 
-            <button type="submit" class="btn">Sign In</button>
+            <button type="submit" class="btn" onclick="saveCredentials()">Sign In</button>
 
         </div>
 
     </form>
+    <script>
+        function saveCredentials() {
+            localStorage['currentUser'] = document.getElementById("username").value;
+            localStorage['secretKey'] = document.getElementById("secretKey").value;
+        }
+    </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
 </body>
 
