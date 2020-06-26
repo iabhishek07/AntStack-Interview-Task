@@ -26,6 +26,7 @@ For Live Demo, Follow the link
 3. Run command : 
 ```node app.js```
 4. Then server will start on localhost:5000.
+<p><strong>You have to enter same Secret key on both windows!!!</strong></p>
 
 ## Working
 For testing purposes, open two browser tabs with localhost:5000 and after entering similar key on both windows only, messages can be seen in chat box!
