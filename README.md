@@ -12,6 +12,9 @@ Application has a DashBoard on which there are two input fields for username & S
 After authentication, route takes user to Chat Window.
 Messages could not be displayed directly from the database, they are readable only after decryption from secret key.
 
+## Reference 
+1.For Encryption and Decryption took reference from this [stackoverflow answer.](https://stackoverflow.com/questions/18279141/javascript-string-encryption-and-decryption)
+
 ## Demo:
 For Live Demo, Follow the link
 [https://antstack-one-to-one-chat.web.app](https://antstack-one-to-one-chat.web.app)                          
